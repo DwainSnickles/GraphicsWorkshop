@@ -1,4 +1,4 @@
-# GraphicsWorkshop
+# Graphics Workshop
 A grahics workstation used to edit grahics and create objects to be added to a design surface where objects can be placed in certain positions along with object rotation.
 This app is not complete and is a work in progress.
 I made it public so if any one is interested in contributing please let me know.

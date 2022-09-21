@@ -1,0 +1,393 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{CF6B28EE-6CA2-4250-BD05-6D55B315BB21}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>GraphicsWorkshop</RootNamespace>
+    <AssemblyName>GraphicsWorkshop</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>
+    </StartupObject>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Cyotek.Windows.Forms.ImageBox">
+      <HintPath>..\GraphicsSurface\bin\Cyotek.Windows.Forms.ImageBox.dll</HintPath>
+    </Reference>
+    <Reference Include="GraphicObjects">
+      <HintPath>..\GraphicsSurface\bin\GraphicObjects.dll</HintPath>
+    </Reference>
+    <Reference Include="GraphicsSurface">
+      <HintPath>..\GraphicsSurface\bin\GraphicsSurface.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Ribbon, Version=4.0.0.0, Culture=neutral, PublicKeyToken=4a850abcb1bad68b, processorArchitecture=MSIL">
+      <HintPath>packages\WindowsRibbon.2.12.0\lib\net40\Ribbon.dll</HintPath>
+    </Reference>
+    <Reference Include="RibbonLib, Version=2.7.9.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\RibbonLib.2.7.9.0\lib\net40\RibbonLib.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Windows.Forms.Ribbon, Version=2.0.0.0, Culture=neutral, PublicKeyToken=928736e248aa81f9, processorArchitecture=MSIL">
+      <HintPath>packages\RibbonWinForms.5.1.0-beta\lib\net472\System.Windows.Forms.Ribbon.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="TextDesignerCSLibrary">
+      <HintPath>..\TextDesigner\bin\Debug\TextDesignerCSLibrary.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Custom Controls\Custom Groupbox\Constants.cs" />
+    <Compile Include="Custom Controls\Custom Groupbox\Grouper.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Custom Controls\Custom Panel\CornerCurveMode.cs" />
+    <Compile Include="Custom Controls\Custom Panel\CustomPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Custom Controls\Custom Panel\LinearGradientMode.cs" />
+    <Compile Include="Custom Controls\Slider Control\ColorSlider.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Custom Controls\Slider Control\ColorSlider.Designer.cs" />
+    <Compile Include="Form Tabs\frmArchedText.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form Tabs\frmArchedText.Designer.cs">
+      <DependentUpon>frmArchedText.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form Tabs\frmShadowText.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form Tabs\frmShadowText.Designer.cs">
+      <DependentUpon>frmShadowText.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form Tabs\frmText.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form Tabs\frmText.Designer.cs">
+      <DependentUpon>frmText.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmGraphicDesigner.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmGraphicDesigner.Designer.cs">
+      <DependentUpon>frmGraphicDesigner.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Custom Controls\Custom Groupbox\Grouper.resx" />
+    <EmbeddedResource Include="Custom Controls\Custom Panel\CustomPanel.resx" />
+    <EmbeddedResource Include="Custom Controls\Slider Control\ColorSlider.resx" />
+    <EmbeddedResource Include="Form Tabs\frmArchedText.resx">
+      <DependentUpon>frmArchedText.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form Tabs\frmShadowText.resx">
+      <DependentUpon>frmShadowText.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form Tabs\frmText.resx">
+      <DependentUpon>frmText.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmGraphicDesigner.resx">
+      <DependentUpon>frmGraphicDesigner.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="RibbonMarkup.ribbon" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Form Backup\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Custom Controls\Custom Groupbox\Grouper.xml" />
+    <None Include="Resources\btnZoomIn.png" />
+    <None Include="Resources\btnSelect.png" />
+    <None Include="Resources\btnRotate270.png" />
+    <None Include="Resources\btnRotate90.png" />
+    <None Include="Resources\btnPreview.png" />
+    <None Include="Resources\btnOpen.png" />
+    <None Include="Resources\btnNext.png" />
+    <None Include="Resources\btnFitToScreen.png" />
+    <None Include="Resources\btnDrag.png" />
+    <None Include="Resources\btnBack.png" />
+    <None Include="Resources\btnZoomOut.png" />
+    <None Include="Resources\AddImage.png" />
+    <None Include="Resources\addobject1.png" />
+    <None Include="Resources\AddobjectSmall1.png" />
+    <None Include="Resources\align_justify1.png" />
+    <None Include="Resources\align_left2.png" />
+    <None Include="Resources\align_left11.png" />
+    <None Include="Resources\align_right1.png" />
+    <None Include="Resources\align_text_center1.png" />
+    <None Include="Resources\align_text_justify1.png" />
+    <None Include="Resources\align_text_left1.png" />
+    <None Include="Resources\align_text_right1.png" />
+    <None Include="Resources\arrow_plain_blue_E1.png" />
+    <None Include="Resources\arrow_plain_blue_E_W1.png" />
+    <None Include="Resources\arrow_plain_blue_N1.png" />
+    <None Include="Resources\arrow_plain_blue_N_E_S_W1.png" />
+    <None Include="Resources\arrow_plain_blue_N_S1.png" />
+    <None Include="Resources\arrow_plain_blue_NE_SE_SW_NW1.png" />
+    <None Include="Resources\arrow_plain_blue_NE_SW1.png" />
+    <None Include="Resources\arrow_plain_blue_NW_SE1.png" />
+    <None Include="Resources\arrow_plain_blue_S1.png" />
+    <None Include="Resources\arrow_plain_blue_W1.png" />
+    <None Include="Resources\arrow_plain_green_E1.png" />
+    <None Include="Resources\arrow_plain_green_N1.png" />
+    <None Include="Resources\arrow_plain_green_S1.png" />
+    <None Include="Resources\arrow_plain_green_W1.png" />
+    <None Include="Resources\arrow_plain_red_e2.png" />
+    <None Include="Resources\arrow_plain_red_E11.png" />
+    <None Include="Resources\arrow_plain_red_N1.png" />
+    <None Include="Resources\bluebutton1.png" />
+    <None Include="Resources\BringFront1.png" />
+    <None Include="Resources\bringtofront1.png" />
+    <None Include="Resources\capturewindow1.png" />
+    <None Include="Resources\case_caps1.png" />
+    <None Include="Resources\case_mixed2.png" />
+    <None Include="Resources\case_small1.png" />
+    <None Include="Resources\case_smallcaps1.png" />
+    <None Include="Resources\cd_blue1.png" />
+    <None Include="Resources\cd_golden1.png" />
+    <None Include="Resources\cd_silver1.png" />
+    <None Include="Resources\Clear1.png" />
+    <None Include="Resources\Colors.jpg" />
+    <None Include="Resources\colors-rainbow-palette-5121.png" />
+    <None Include="Resources\computer_desktop1.png" />
+    <None Include="Resources\computer_desktop_error1.png" />
+    <None Include="Resources\computer_desktop_error_repeat1.png" />
+    <None Include="Resources\computer_desktop_info1.png" />
+    <None Include="Resources\computer_desktop_info_repeat2.png" />
+    <None Include="Resources\computer_desktop_info_repeat11.png" />
+    <None Include="Resources\computer_desktop_warning1.png" />
+    <None Include="Resources\computer_desktop_warning_repeat1.png" />
+    <None Include="Resources\copy2.png" />
+    <None Include="Resources\Copy12.png" />
+    <None Include="Resources\copy111.png" />
+    <None Include="Resources\crop2.png" />
+    <None Include="Resources\crop11.png" />
+    <None Include="Resources\cursor_arrow1.png" />
+    <None Include="Resources\customcrop1.png" />
+    <None Include="Resources\Cut.png" />
+    <None Include="Resources\cut11.png" />
+    <None Include="Resources\delete_red1.png" />
+    <None Include="Resources\directions1.png" />
+    <None Include="Resources\directory_closed1.png" />
+    <None Include="Resources\directory_open2.png" />
+    <None Include="Resources\directory_open11.png" />
+    <None Include="Resources\disperse1.png" />
+    <None Include="Resources\EmptGrid1.png" />
+    <None Include="Resources\envelope_back1.png" />
+    <None Include="Resources\envelope_front1.png" />
+    <None Include="Resources\error1.png" />
+    <None Include="Resources\Exit2.png" />
+    <None Include="Resources\file_yellow4.png" />
+    <None Include="Resources\file_yellow_empty3.png" />
+    <None Include="Resources\file_yellow_empty_new1.png" />
+    <None Include="Resources\file_yellow_empty11.png" />
+    <None Include="Resources\file_yellow_empty21.png" />
+    <None Include="Resources\file_yellow_hierarchy1_expanded2.png" />
+    <None Include="Resources\file_yellow_hierarchy1_expanded_open_hdd1.png" />
+    <None Include="Resources\file_yellow_hierarchy1_expanded_save_hdd1.png" />
+    <None Include="Resources\file_yellow_hierarchy1_expanded_save_hdd_ellipsis2.png" />
+    <None Include="Resources\file_yellow_hierarchy1_expanded_save_hdd_ellipsis11.png" />
+    <None Include="Resources\file_yellow_hierarchy1_expanded11.png" />
+    <None Include="Resources\file_yellow_open1.png" />
+    <None Include="Resources\file_yellow_open_hdd1.png" />
+    <None Include="Resources\file_yellow_paintings1.png" />
+    <None Include="Resources\file_yellow_paintings_new1.png" />
+    <None Include="Resources\file_yellow_paintings_open1.png" />
+    <None Include="Resources\file_yellow_paintings_open_hdd1.png" />
+    <None Include="Resources\file_yellow_paintings_save1.png" />
+    <None Include="Resources\file_yellow_paintings_save_ellipsis1.png" />
+    <None Include="Resources\file_yellow_paintings_save_hdd1.png" />
+    <None Include="Resources\file_yellow_paintings_save_hdd_ellipsis1.png" />
+    <None Include="Resources\file_yellow_save1.png" />
+    <None Include="Resources\file_yellow_save_ellipsis1.png" />
+    <None Include="Resources\file_yellow_save_hdd1.png" />
+    <None Include="Resources\file_yellow_save_hdd_ellipsis1.png" />
+    <None Include="Resources\file_yellow_split1.png" />
+    <None Include="Resources\file_yellow_trashcan1.png" />
+    <None Include="Resources\file_yellow11.png" />
+    <None Include="Resources\file_yellow21.png" />
+    <None Include="Resources\file_yellow31.png" />
+    <None Include="Resources\files_yellow_combine1.png" />
+    <None Include="Resources\files_yellow_transform_cyan1.png" />
+    <None Include="Resources\fill1.png" />
+    <None Include="Resources\fill-color-icon1.png" />
+    <None Include="Resources\flipchart1.png" />
+    <None Include="Resources\floppy_35inch_black1.png" />
+    <None Include="Resources\floppy_35inch_blue1.png" />
+    <None Include="Resources\floppy_35inch_green1.png" />
+    <None Include="Resources\floppy_35inch_red1.png" />
+    <None Include="Resources\floppy_35inch_white1.png" />
+    <None Include="Resources\folder+open1.png" />
+    <None Include="Resources\format_bold1.png" />
+    <None Include="Resources\format_italic1.png" />
+    <None Include="Resources\format_normal1.png" />
+    <None Include="Resources\format_strikethrough1.png" />
+    <None Include="Resources\format_underline1.png" />
+    <None Include="Resources\Frame2.png" />
+    <None Include="Resources\frame12.png" />
+    <None Include="Resources\Grid2.png" />
+    <None Include="Resources\help1.png" />
+    <None Include="Resources\hierarchy11.png" />
+    <None Include="Resources\hierarchy1_expanded1.png" />
+    <None Include="Resources\imagewokshop1.jpg" />
+    <None Include="Resources\info1.png" />
+    <None Include="Resources\key_primary1.png" />
+    <None Include="Resources\key_primary_multicolumn1.png" />
+    <None Include="Resources\key_primary_reset1.png" />
+    <None Include="Resources\landscape1.png" />
+    <None Include="Resources\minus_blue1.png" />
+    <None Include="Resources\minus_green1.png" />
+    <None Include="Resources\minus_red1.png" />
+    <None Include="Resources\newphoto2.png" />
+    <None Include="Resources\newphoto11.png" />
+    <None Include="Resources\no1.png" />
+    <None Include="Resources\openfolder2.png" />
+    <None Include="Resources\pages-11.png" />
+    <None Include="Resources\paste1.png" />
+    <None Include="Resources\pencil_green1.png" />
+    <None Include="Resources\pencil_magenta1.png" />
+    <None Include="Resources\plus_blue1.png" />
+    <None Include="Resources\plus_green1.png" />
+    <None Include="Resources\plus_red1.png" />
+    <None Include="Resources\portrait2.png" />
+    <None Include="Resources\portrait11.png" />
+    <None Include="Resources\Print1.png" />
+    <None Include="Resources\Print_preview1.png" />
+    <None Include="Resources\question1.png" />
+    <None Include="Resources\redo1.png" />
+    <None Include="Resources\redo_green1.png" />
+    <None Include="Resources\redo_yellow1.png" />
+    <None Include="Resources\redo01.png" />
+    <None Include="Resources\repeat_green1.png" />
+    <None Include="Resources\revive1.png" />
+    <None Include="Resources\rotateleft1.png" />
+    <None Include="Resources\rotateright1.png" />
+    <None Include="Resources\Save1.png" />
+    <None Include="Resources\saveas1.png" />
+    <None Include="Resources\SaveImage1.png" />
+    <None Include="Resources\SaveOblects1.png" />
+    <None Include="Resources\scissors1.png" />
+    <None Include="Resources\screencapture1.png" />
+    <None Include="Resources\select_all1.png" />
+    <None Include="Resources\select_many1.png" />
+    <None Include="Resources\select_none1.png" />
+    <None Include="Resources\select_one1.png" />
+    <None Include="Resources\Send_to_Back-5121.png" />
+    <None Include="Resources\sendtoback1.png" />
+    <None Include="Resources\snip1.png" />
+    <None Include="Resources\subscript1.png" />
+    <None Include="Resources\superscript1.png" />
+    <None Include="Resources\table1.png" />
+    <None Include="Resources\table_column1.png" />
+    <None Include="Resources\table_column_delete1.png" />
+    <None Include="Resources\table_column_new1.png" />
+    <None Include="Resources\table_column_reload1.png" />
+    <None Include="Resources\table_delete1.png" />
+    <None Include="Resources\table_error1.png" />
+    <None Include="Resources\table_index1.png" />
+    <None Include="Resources\table_index_error1.png" />
+    <None Include="Resources\table_index_info1.png" />
+    <None Include="Resources\table_index_warning1.png" />
+    <None Include="Resources\table_info1.png" />
+    <None Include="Resources\table_name1.png" />
+    <None Include="Resources\text_size1.png" />
+    <None Include="Resources\trashcan1.png" />
+    <None Include="Resources\undo2.png" />
+    <None Include="Resources\undo_green1.png" />
+    <None Include="Resources\undo_yellow1.png" />
+    <None Include="Resources\Undo0.png" />
+    <None Include="Resources\warning1.png" />
+    <None Include="Resources\window1.png" />
+    <None Include="Resources\window_help1.png" />
+    <None Include="Resources\window_inactive1.png" />
+    <None Include="Resources\window_info1.png" />
+    <None Include="Resources\window_select1.png" />
+    <None Include="Resources\window_yesno1.png" />
+    <None Include="Resources\windows_cascade1.png" />
+    <None Include="Resources\windows_tile1.png" />
+    <None Include="Resources\yes1.png" />
+    <None Include="Resources\zoom1.png" />
+    <None Include="Resources\bringtofront2.png" />
+    <None Include="Resources\bringtofront3.png" />
+    <None Include="Resources\bringtofront.png" />
+    <None Include="Resources\sendtoback.png" />
+    <Content Include="RibbonMarkup.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Custom Controls\CButton\CButtonLib.vbproj">
+      <Project>{24116FE6-8501-45F0-ADD0-67FFFB037BAF}</Project>
+      <Name>CButtonLib</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="packages\RibbonLib.2.7.9.0\build\RibbonLib.targets" Condition="Exists('packages\RibbonLib.2.7.9.0\build\RibbonLib.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('packages\RibbonLib.2.7.9.0\build\RibbonLib.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\RibbonLib.2.7.9.0\build\RibbonLib.targets'))" />
+  </Target>
+</Project>

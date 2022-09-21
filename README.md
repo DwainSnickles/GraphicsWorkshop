@@ -13,4 +13,4 @@ Note at this time once text object is added to the designer
 
 2) Right click hold and rotate object using the mouse.
 
-![image](https://user-images.githubusercontent.com/26853477/191580190-082f4d80-2169-4896-8290-8c20695ec762.png)
+![image](https://user-images.githubusercontent.com/26853477/191587854-726c9a0c-cf80-4b60-9c3f-fbca20977270.png)

@@ -84,13 +84,13 @@
     </Compile>
     <Compile Include="Custom Controls\Slider Control\ColorSlider.Designer.cs" />
     <Compile Include="Form Tabs\frmArchedText.cs">
-      <SubType>Form</SubType>
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Form Tabs\frmArchedText.Designer.cs">
       <DependentUpon>frmArchedText.cs</DependentUpon>
     </Compile>
     <Compile Include="Form Tabs\frmShadowText.cs">
-      <SubType>Form</SubType>
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Form Tabs\frmShadowText.Designer.cs">
       <DependentUpon>frmShadowText.cs</DependentUpon>

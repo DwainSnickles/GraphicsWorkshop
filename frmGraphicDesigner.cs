@@ -44,11 +44,55 @@ namespace GraphicsWorkshop
         public Font addFont { get; set; }
 
 
+        // Saving frmGraphicDesigner from the Visual Studio designer drops the ribbon's tab and
+        // panel captions, which leaves the ribbon collapsed to a 27px caption bar with no labels.
+        // These are the captions the designer should be holding; they are put back when missing.
+        private static readonly Dictionary<string, string> RibbonCaptions = new Dictionary<string, string>
+        {
+            { "ribbonTab1", "Design Surface Toolbar" },
+            { "ribbonTab2", "Start" },
+            { "ribbonPanel1", "Clipboard" },
+            { "ribbonPanel2", "Files" },
+            { "ribbonPanel3", "Edits" },
+            { "ribbonPanel4", "Object Orientation" },
+            { "ribbonPanel5", "Background" },
+            { "ribbonPanel6", "Grid Orientation" },
+            { "ribbonPanel7", "Files" },
+            { "ribbonPanel8", "Clipboard" },
+            { "ribbonPanel9", "Object Orientation" },
+            { "ribbonPanel10", "Edits" },
+            { "ribbonPanel11", "Background" },
+            { "ribbonPanel12", "Grid Orientation" }
+        };
+
         public frmGraphicDesigner()
         {
             InitializeComponent();
+            RestoreRibbonCaptions();
             AlignRibbonButtonText();
             FitRibbonCaptions();
+        }
+
+        // Only fills in captions that are missing, so a panel renamed on purpose is left alone
+        private void RestoreRibbonCaptions()
+        {
+            foreach (RibbonTab tab in ribbonMain.Tabs)
+            {
+                if (string.IsNullOrEmpty(tab.Text))
+                    tab.Text = CaptionFor(tab.Name);
+
+                foreach (RibbonPanel panel in tab.Panels)
+                {
+                    if (string.IsNullOrEmpty(panel.Text))
+                        panel.Text = CaptionFor(panel.Name);
+                }
+            }
+        }
+
+        private static string CaptionFor(string name)
+        {
+            string caption;
+            return name != null && RibbonCaptions.TryGetValue(name, out caption) ? caption : null;
         }
 
         // A caption made of more than one word is broken onto a second line when the button is

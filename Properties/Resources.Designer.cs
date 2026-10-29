@@ -19,7 +19,7 @@ namespace GraphicsWorkshop.Properties {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "18.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resources {
@@ -803,6 +803,16 @@ namespace GraphicsWorkshop.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap EmptyGrid30 {
+            get {
+                object obj = ResourceManager.GetObject("EmptyGrid30", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap envelope_back1 {
             get {
                 object obj = ResourceManager.GetObject("envelope_back1", resourceCulture);
@@ -1283,6 +1293,16 @@ namespace GraphicsWorkshop.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap key_primary_reset {
+            get {
+                object obj = ResourceManager.GetObject("key_primary_reset", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap key_primary_reset1 {
             get {
                 object obj = ResourceManager.GetObject("key_primary_reset1", resourceCulture);
@@ -1306,6 +1326,16 @@ namespace GraphicsWorkshop.Properties {
         internal static System.Drawing.Bitmap landscape1 {
             get {
                 object obj = ResourceManager.GetObject("landscape1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Landscape32 {
+            get {
+                object obj = ResourceManager.GetObject("Landscape32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

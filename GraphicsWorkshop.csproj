@@ -395,6 +395,9 @@
     <None Include="Resources\bringtofront3.png" />
     <None Include="Resources\bringtofront.png" />
     <None Include="Resources\sendtoback.png" />
+    <None Include="Resources\EmptyGrid30.png" />
+    <None Include="Resources\Landscape32.png" />
+    <None Include="Resources\key_primary_reset.png" />
     <Content Include="RibbonMarkup.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

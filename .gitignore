@@ -361,3 +361,5 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+# NuGet restored packages (recreated by restore from packages.config)
+packages/

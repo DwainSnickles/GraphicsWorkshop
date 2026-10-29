@@ -55,7 +55,7 @@ namespace GraphicsWorkshop
             //920, 825
             this.Height = 853;
             this.Width = 915;
-            dsSurface.Orientation = Microsoft.Msdn.Samples.DesignSurface.DesignSurface.SurfaceOrientation.Portrait;
+            graphicsSurface.GridPortrait();
             this.Invalidate();
         }
 
@@ -64,19 +64,19 @@ namespace GraphicsWorkshop
             //1060, 680
             this.Height = 708;
             this.Width = 1060;
-            dsSurface.Orientation = Microsoft.Msdn.Samples.DesignSurface.DesignSurface.SurfaceOrientation.LandScape;
+            graphicsSurface.GridLandscape();
             this.Invalidate();
         }
 
         private void btnShowGrid_Click(object sender, EventArgs e)
         {
-            dsSurface.ShowGrid = true;
+            graphicsSurface.GridShown = true;
             this.Invalidate();
         }
 
         private void btnHideGrid_Click(object sender, EventArgs e)
         {
-            dsSurface.ShowGrid = true;
+            graphicsSurface.GridShown = true;
             this.Invalidate();
         }
 
@@ -92,12 +92,12 @@ namespace GraphicsWorkshop
 
         private void btnQuickPrintQA_Click(object sender, EventArgs e)
         {
-            dsSurface.PrintGraphics();
+            graphicsSurface.PrintGraphics();
         }
 
         private void btnQuickSaveQA_Click(object sender, EventArgs e)
         {
-            dsSurface.SaveGraphics();
+            graphicsSurface.SaveGraphics();
         }
 
         private void btnquickExitQA_Click(object sender, EventArgs e)
@@ -115,8 +115,8 @@ namespace GraphicsWorkshop
             dr = MessageBox.Show("Are you sure you want to remove all the graphic elements from the design surface?", "Confirm Clear All Elements", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (dr == DialogResult.Yes)
             {
-                dsSurface.DeleteAllObjects();
-                dsSurface.SelectedObject = null;
+                graphicsSurface.DeleteAllObjects();
+                graphicsSurface.SelectedObject = null;
                 // Reset ImageCount to 0
                 this.intObjectCount = 0;
                 sbObjectCount.Text = intObjectCount.ToString() + "  Images Loaded";
@@ -131,12 +131,12 @@ namespace GraphicsWorkshop
 
         private void BbtnOpenImage_Click(object sender, EventArgs e)
         {
-            dsSurface.OpenGraphic();
+            graphicsSurface.OpenGraphic();
         }
 
         private void btnSaveAsImage_Click(object sender, EventArgs e)
         {
-            dsSurface.SaveGraphics();
+            graphicsSurface.SaveGraphics();
         }
 
         private void btnSaveObjects_Click(object sender, EventArgs e)
@@ -151,12 +151,12 @@ namespace GraphicsWorkshop
 
         private void btnQuickPrint_CanvasChanged(object sender, EventArgs e)
         {
-            dsSurface.PrintGraphics();
+            graphicsSurface.PrintGraphics();
         }
 
         private void btnPrintPreview_Click(object sender, EventArgs e)
         {
-            dsSurface.PrintPreview();
+            graphicsSurface.PrintPreview();
         }
         #endregion
         #region Main Toolbar Click Events
@@ -168,7 +168,7 @@ namespace GraphicsWorkshop
 
         private void btnOpenImage_Click(object sender, EventArgs e)
         {
-            dsSurface.OpenGraphic();
+            graphicsSurface.OpenGraphic();
         }
 
         private void btnOpenSavedObjects_Click(object sender, EventArgs e)
@@ -178,46 +178,46 @@ namespace GraphicsWorkshop
 
         private void btnPaste_Click(object sender, EventArgs e)
         {
-            //dsSurface.PasteGraphicImage;
-            //dsSurface.AddImageObject();
-            //dsSurface.SelectedObjectChanged();
+            //graphicsSurface.PasteGraphicImage;
+            //graphicsSurface.AddImageObject();
+            //graphicsSurface.SelectedObjectChanged();
         }
 
         private void btnCut_Click(object sender, EventArgs e)
         {
-            if (dsSurface.SelectedObject == null)
+            if (graphicsSurface.SelectedObject == null)
                 return;
-            dsSurface.DeleteSelectedObject(dsSurface.SelectedObject);
+            graphicsSurface.DeleteSelectedObject();
         }
 
         private void btnCopy_Click(object sender, EventArgs e)
         {
-            if (dsSurface.SelectedObject != null)
-                ImgPath = dsSurface.SelectedObject.ImagePath;
+            if (graphicsSurface.SelectedObject != null)
+                ImgPath = graphicsSurface.SelectedObject.ImagePath;
         }
 
         private void btnSendToBack_Click(object sender, EventArgs e)
         {
-            if (dsSurface.SelectedObject != null)
-                dsSurface.SelectedObject.SendToBack(this.dsSurface.SelectedObject);
-            dsSurface.Invalidate();
+            if (graphicsSurface.SelectedObject != null)
+                graphicsSurface.SelectedObject.SendToBack(this.graphicsSurface.SelectedObject);
+            graphicsSurface.Invalidate();
         }
 
         private void btnBringToFront_Click(object sender, EventArgs e)
         {
-            if (dsSurface.SelectedObject != null)
-                dsSurface.SelectedObject.BringToFront(this.dsSurface.SelectedObject);
-            dsSurface.Invalidate();
+            if (graphicsSurface.SelectedObject != null)
+                graphicsSurface.SelectedObject.BringToFront(this.graphicsSurface.SelectedObject);
+            graphicsSurface.Invalidate();
         }
 
         private void btnRedo_Click(object sender, EventArgs e)
         {
-            dsSurface.Redo();
+            graphicsSurface.Redo();
         }
 
         private void btnUndo_Click(object sender, EventArgs e)
         {
-            dsSurface.Undo();
+            graphicsSurface.Undo();
         }
 
         private void btnFillBackground_Click(object sender, EventArgs e)
@@ -232,16 +232,16 @@ namespace GraphicsWorkshop
 
         private void SendObjectToBack()
         {
-            if (dsSurface.SelectedObject != null)
-                dsSurface.SelectedObject.SendToBack(this.dsSurface.SelectedObject);
-            dsSurface.Invalidate();
+            if (graphicsSurface.SelectedObject != null)
+                graphicsSurface.SelectedObject.SendToBack(this.graphicsSurface.SelectedObject);
+            graphicsSurface.Invalidate();
         }
 
         private void BringObjectToFront()
         {
-            if (dsSurface.SelectedObject != null)
-                dsSurface.SelectedObject.BringToFront(this.dsSurface.SelectedObject);
-            dsSurface.Invalidate();
+            if (graphicsSurface.SelectedObject != null)
+                graphicsSurface.SelectedObject.BringToFront(this.graphicsSurface.SelectedObject);
+            graphicsSurface.Invalidate();
         }
 
 
@@ -280,7 +280,7 @@ namespace GraphicsWorkshop
 
                 case "Fill":// Allow the background to be colored
                     {
-                        RectangleGraphic myRectangle = new RectangleGraphic(dsSurface.SurfaceMargins.X, dsSurface.SurfaceMargins.Y, dsSurface.SurfaceMargins.Width, dsSurface.SurfaceMargins.Height);
+                        RectangleGraphic myRectangle = new RectangleGraphic(graphicsSurface.SurfaceMargins.X, graphicsSurface.SurfaceMargins.Y, graphicsSurface.SurfaceMargins.Width, graphicsSurface.SurfaceMargins.Height);
                         myRectangle.Fill = true;
                         colorPicker.ShowDialog();
                         myRectangle.FillColor = colorPicker.Color;
@@ -300,8 +300,8 @@ namespace GraphicsWorkshop
                             gObj = myBackgroundImage;
 
                             // This sets the new image Size
-                            gObj.Height = dsSurface.SurfaceBounds.Height;
-                            gObj.Width = dsSurface.SurfaceBounds.Width;
+                            gObj.Height = graphicsSurface.SurfaceBounds.Height;
+                            gObj.Width = graphicsSurface.SurfaceBounds.Width;
                             gObj.AutoSize = false;
                         }
 
@@ -318,15 +318,15 @@ namespace GraphicsWorkshop
             if (gObj != null)
             {
                 // Add the object to the designer
-                dsSurface.drawingObjects.Add(gObj);
-                dsSurface.Update();
-                dsSurface.SelectedObject = gObj;
-                //dsSurface.SelectedObject.ImageType = ObjectType;
-                //dsSurface.SelectedObject.ImageName = ObjectType + intObjectCount.ToString();
-                //dsSurface.SelectedObject.ImageNumber = intObjectCount;
-                dsSurface.SelectedObject.ImagePath = strImagePath;
-                //dsSurface.addGraphic(gObj);
-                dsSurface.Invalidate();
+                graphicsSurface.drawingObjects.Add(gObj);
+                graphicsSurface.Update();
+                graphicsSurface.SelectedObject = gObj;
+                //graphicsSurface.SelectedObject.ImageType = ObjectType;
+                //graphicsSurface.SelectedObject.ImageName = ObjectType + intObjectCount.ToString();
+                //graphicsSurface.SelectedObject.ImageNumber = intObjectCount;
+                graphicsSurface.SelectedObject.ImagePath = strImagePath;
+                //graphicsSurface.addGraphic(gObj);
+                graphicsSurface.Invalidate();
             }
 
             if (intObjectCount > 0)
@@ -339,7 +339,7 @@ namespace GraphicsWorkshop
                 btnCut.Enabled = false;
                 mnuCut.Enabled = false;
             }
-            // PropertyGrid1.SelectedObject = dsSurface.SelectedObject
+            // PropertyGrid1.SelectedObject = graphicsSurface.SelectedObject
             this.Cursor = Cursors.Default;
         }
 
@@ -444,7 +444,7 @@ namespace GraphicsWorkshop
                 gr.DrawString(label.Text, label.Font, brush1, new Point(0, 0));
             }
 
-            //dsSurface.AddObject(GraphicObject.ObjectTypes.EmbeddedImageGraphic);
+            //graphicsSurface.AddObject(GraphicObject.ObjectTypes.EmbeddedImageGraphic);
             return BM;
         }
 

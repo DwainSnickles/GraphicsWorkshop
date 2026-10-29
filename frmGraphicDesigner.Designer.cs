@@ -133,7 +133,7 @@ namespace GraphicsWorkshop
             this.ribbonButton30 = new System.Windows.Forms.RibbonButton();
             this.TabimageList = new System.Windows.Forms.ImageList(this.components);
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.dsSurface = new Microsoft.Msdn.Samples.DesignSurface.DesignSurface();
+            this.graphicsSurface = new Microsoft.Msdn.Samples.DesignSurface.DesignSurface();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.sbObjectCount = new System.Windows.Forms.ToolStripStatusLabel();
             this.btnAddText = new CButtonLib.CButton();
@@ -990,7 +990,7 @@ namespace GraphicsWorkshop
             // 
             // splitContainer1.Panel1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.dsSurface);
+            this.splitContainer1.Panel1.Controls.Add(this.graphicsSurface);
             this.splitContainer1.Panel1.Controls.Add(this.statusStrip1);
             this.splitContainer1.Panel1.Controls.Add(this.btnAddText);
             // 
@@ -1003,41 +1003,33 @@ namespace GraphicsWorkshop
             this.splitContainer1.SplitterDistance = 494;
             this.splitContainer1.TabIndex = 12;
             // 
-            // dsSurface
+            // graphicsSurface
             // 
-            this.dsSurface.AutoScroll = true;
-            this.dsSurface.AutoScrollMinSize = new System.Drawing.Size(490, 634);
-            this.dsSurface.BackColor = System.Drawing.SystemColors.Window;
-            this.dsSurface.ContxtMenu = null;
-            this.dsSurface.CopyGraphicObject = null;
-            this.dsSurface.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dsSurface.GridColor = System.Drawing.Color.LightBlue;
-            this.dsSurface.GridLineWidth = 1;
-            this.dsSurface.GridSize = 50F;
-            this.dsSurface.GrObjectChanged = null;
-            this.dsSurface.ImageObjHeight = 0;
-            this.dsSurface.ImageObjWidth = 0;
-            this.dsSurface.Location = new System.Drawing.Point(0, 0);
-            this.dsSurface.MarginColor = System.Drawing.Color.Green;
-            this.dsSurface.MarginLineWidth = 1;
-            this.dsSurface.Name = "dsSurface";
-            this.dsSurface.NonPrintingAreaColor = System.Drawing.Color.Gray;
-            this.dsSurface.ObjectChangeType = Microsoft.Msdn.Samples.DesignSurface.DesignSurface.ObjectChangeTypes.ObjectOrientationPortrait;
-            this.dsSurface.ObjectType = Microsoft.Msdn.Samples.DesignSurface.DesignSurface.ObjectTypes.Linked;
-            this.dsSurface.Orientation = Microsoft.Msdn.Samples.DesignSurface.DesignSurface.SurfaceOrientation.Portrait;
-            this.dsSurface.SelectedObject = null;
-            this.dsSurface.SetGraphicImage = null;
-            this.dsSurface.ShowGrid = false;
-            this.dsSurface.Size = new System.Drawing.Size(494, 637);
-            this.dsSurface.SurfaceBounds = new System.Drawing.Rectangle(0, 0, 850, 1100);
-            this.dsSurface.SurfaceImage = null;
-            this.dsSurface.SurfaceMargins = new System.Drawing.Rectangle(10, 10, 830, 1080);
-            this.dsSurface.TabIndex = 78;
-            this.dsSurface.TextColor = System.Drawing.Color.Empty;
-            this.dsSurface.TextFont = null;
-            this.dsSurface.TextMessage = null;
-            this.dsSurface.WarpImage = null;
-            this.dsSurface.Zoom = 0.6F;
+            this.graphicsSurface.AutoScroll = true;
+            this.graphicsSurface.AutoScrollMinSize = new System.Drawing.Size(490, 634);
+            this.graphicsSurface.BackColor = System.Drawing.SystemColors.Window;
+            this.graphicsSurface.ContxtMenu = null;
+            this.graphicsSurface.CopyGraphicObject = null;
+            this.graphicsSurface.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.graphicsSurface.GridColor = System.Drawing.Color.LightBlue;
+            this.graphicsSurface.GridLineWidth = 1;
+            this.graphicsSurface.GridSize = 50F;
+            this.graphicsSurface.GrObjectChanged = null;
+            this.graphicsSurface.ImageObjHeight = 0;
+            this.graphicsSurface.ImageObjWidth = 0;
+            this.graphicsSurface.Location = new System.Drawing.Point(0, 0);
+            this.graphicsSurface.MarginColor = System.Drawing.Color.Green;
+            this.graphicsSurface.MarginLineWidth = 1;
+            this.graphicsSurface.Name = "graphicsSurface";
+            this.graphicsSurface.NonPrintingAreaColor = System.Drawing.Color.Gray;
+            this.graphicsSurface.GridPortrait();
+            this.graphicsSurface.SelectedObject = null;
+            this.graphicsSurface.GridShown = false;
+            this.graphicsSurface.Size = new System.Drawing.Size(494, 637);
+            this.graphicsSurface.SurfaceBounds = new System.Drawing.Rectangle(0, 0, 850, 1100);
+            this.graphicsSurface.SurfaceMargins = new System.Drawing.Rectangle(10, 10, 830, 1080);
+            this.graphicsSurface.TabIndex = 78;
+            this.graphicsSurface.Zoom = 0.6F;
             // 
             // statusStrip1
             // 
@@ -1839,7 +1831,7 @@ namespace GraphicsWorkshop
         private CButtonLib.CButton btnAddText;
         private System.Windows.Forms.FontDialog fontDialog1;
         private System.Windows.Forms.ColorDialog colorDialog1;
-        private Microsoft.Msdn.Samples.DesignSurface.DesignSurface dsSurface;
+        private Microsoft.Msdn.Samples.DesignSurface.DesignSurface graphicsSurface;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;

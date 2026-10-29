@@ -15,6 +15,7 @@ checkout builds on its own.
 | `Gma.System.MouseKeyHook.dll` | third-party (MouseKeyHook), shipped in the DesignSurface bin | 2023-04-10 |
 | `GraphicObjects.dll` | `E:\DesignSurface CSharp\GraphicObjects` | 2025-08-24 |
 | `GraphicsSurface.dll` | `E:\DesignSurface CSharp\GraphicsSurface` (assembly `GraphicsSurface`, control type `DesignSurface`) | 2026-10-28 |
+| `System.Windows.Forms.Ribbon.dll` | RibbonWinForms fork, **net472** flavor (`src\System.Windows.Forms.Ribbon\System.Windows.Forms.Ribbon.csproj`) | 2026-10-28 |
 
 `GraphicsSurface.dll` carries these fixes made in the library source:
 
@@ -25,6 +26,22 @@ checkout builds on its own.
   is not marked as serializable").
 - The `GridShown` and `GridMarginsShown` setters assign `value` instead of hard-coding `false`,
   which is what made the Show Grid button impossible to work.
+
+## The ribbon assembly
+
+The fork ships three projects, all producing `System.Windows.Forms.Ribbon`:
+
+| Project | Target | Usable from this project |
+| --- | --- | --- |
+| `System.Windows.Forms.Ribbon.csproj` | net472 | yes - this is the one vendored here |
+| `System.Windows.Forms.Ribbon.NET4.csproj` | v4.0 | yes, older |
+| `RibbonWinFormsCore.csproj` | net10.0-windows7.0 | no - needs the app itself on .NET 10 |
+
+It replaces the `RibbonWinForms 5.1.0-beta` NuGet package, which has been removed from
+`packages.config`. The vendored build carries the same assembly identity as that package
+(`Version=2.0.0.0, PublicKeyToken=928736e248aa81f9`), so the reference in the project file is
+unchanged apart from its `HintPath`. Its public API was identical to the package (123 types,
+1,830 members).
 
 ## When the libraries change
 

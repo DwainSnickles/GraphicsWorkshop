@@ -6,7 +6,7 @@ using TextDesignerCSLibrary;
 
 namespace GraphicsWorkshop.Form_Tabs
 {
-    public partial class frmShadowText : Form
+    public partial class frmShadowText : UserControl
     {
         public int ShadowThickness { get; set; } = 10;
         public GradientType gradientType { get; set; } = GradientType.Linear;

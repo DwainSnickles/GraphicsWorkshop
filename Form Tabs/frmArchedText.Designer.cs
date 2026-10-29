@@ -565,7 +565,6 @@ namespace GraphicsWorkshop.Form_Tabs
             this.Controls.Add(this.grouper4);
             this.Controls.Add(this.grpBorder);
             this.Controls.Add(this.grouper2);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmArchedText";
             this.Text = "frmArchedText";
             this.panel2.ResumeLayout(false);

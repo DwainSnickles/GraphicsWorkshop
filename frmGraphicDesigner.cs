@@ -3,6 +3,7 @@ using Microsoft.VisualBasic;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.Windows.Forms;
 
 //has code needed if missing
@@ -46,6 +47,12 @@ namespace GraphicsWorkshop
         public frmGraphicDesigner()
         {
             InitializeComponent();
+            this.Shown += frmGraphicDesigner_Shown;
+        }
+
+        private void frmGraphicDesigner_Shown(object sender, EventArgs e)
+        {
+            AlignRibbonButtonText();
         }
 
         #region Display Orientation
@@ -355,11 +362,7 @@ namespace GraphicsWorkshop
 
         private void frmGraphicDesigner_Load(object sender, EventArgs e)
         {
-            HostTabForm(new Form_Tabs.frmShadowText(), tabPage2);
-
-            var archedText = new Form_Tabs.frmArchedText();
-            archedText.AddToDesigner += ArchedText_AddToDesigner;
-            HostTabForm(archedText, tabPage3);
+            archedTextTab.AddToDesigner += ArchedText_AddToDesigner;
 
             //ribbonMain.OrbDropDown.RecentItems.Add()
             RecentFilepaths.Add("FilesPath 1");
@@ -372,19 +375,51 @@ namespace GraphicsWorkshop
             }
         }
 
+        // A ribbon button draws its caption directly under its image, so a shorter icon pulls its
+        // caption up out of line with the buttons beside it. Pad every large image to the tallest
+        // one in the ribbon, which puts all of the captions on the same line.
+        private void AlignRibbonButtonText()
+        {
+            var buttons = new List<RibbonButton>();
+            int tallest = 0;
+
+            foreach (RibbonTab tab in ribbonMain.Tabs)
+            {
+                foreach (RibbonPanel panel in tab.Panels)
+                {
+                    foreach (RibbonItem item in panel.Items)
+                    {
+                        var button = item as RibbonButton;
+                        if (button == null || button.Image == null)
+                            continue;
+
+                        buttons.Add(button);
+                        tallest = Math.Max(tallest, button.Image.Height);
+                    }
+                }
+            }
+
+            foreach (var button in buttons)
+            {
+                if (button.Image.Height < tallest)
+                    button.LargeImage = PadImageToHeight(button.Image, tallest);
+            }
+        }
+
+        private static Image PadImageToHeight(Image image, int height)
+        {
+            var padded = new Bitmap(image.Width, height, PixelFormat.Format32bppArgb);
+            using (var g = Graphics.FromImage(padded))
+            {
+                g.Clear(Color.Transparent);
+                g.DrawImageUnscaled(image, 0, (height - image.Height) / 2);
+            }
+            return padded;
+        }
+
         private void ArchedText_AddToDesigner(object sender, EventArgs e)
         {
             AddObject("CircularTextImage", false);
-        }
-
-        // The text tabs are their own forms, so show each one inside its page instead of a new window
-        private static void HostTabForm(Form form, TabPage host)
-        {
-            form.TopLevel = false;
-            form.FormBorderStyle = FormBorderStyle.None;
-            form.Dock = DockStyle.Fill;
-            host.Controls.Add(form);
-            form.Show();
         }
 
         private void btnSelectFont_Click(object sender, EventArgs e)

@@ -153,7 +153,9 @@ namespace GraphicsWorkshop
             this.txtMessage = new System.Windows.Forms.TextBox();
             this.btnAddToDesigner = new CButtonLib.CButton();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.shadowTextTab = new GraphicsWorkshop.Form_Tabs.frmShadowText();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.archedTextTab = new GraphicsWorkshop.Form_Tabs.frmArchedText();
             this.fontDialog1 = new System.Windows.Forms.FontDialog();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.ribbonOrbRecentItem2 = new System.Windows.Forms.RibbonOrbRecentItem();
@@ -1279,6 +1281,7 @@ namespace GraphicsWorkshop
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.Color.White;
+            this.tabPage2.Controls.Add(this.shadowTextTab);
             this.tabPage2.ImageIndex = 10;
             this.tabPage2.Location = new System.Drawing.Point(4, 23);
             this.tabPage2.Name = "tabPage2";
@@ -1290,6 +1293,7 @@ namespace GraphicsWorkshop
             // tabPage3
             // 
             this.tabPage3.BackColor = System.Drawing.Color.White;
+            this.tabPage3.Controls.Add(this.archedTextTab);
             this.tabPage3.ImageIndex = 14;
             this.tabPage3.Location = new System.Drawing.Point(4, 23);
             this.tabPage3.Name = "tabPage3";
@@ -1297,6 +1301,22 @@ namespace GraphicsWorkshop
             this.tabPage3.Size = new System.Drawing.Size(393, 632);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Circular Text";
+            // 
+            // shadowTextTab
+            // 
+            this.shadowTextTab.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.shadowTextTab.Location = new System.Drawing.Point(3, 3);
+            this.shadowTextTab.Name = "shadowTextTab";
+            this.shadowTextTab.Size = new System.Drawing.Size(387, 626);
+            this.shadowTextTab.TabIndex = 0;
+            // 
+            // archedTextTab
+            // 
+            this.archedTextTab.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.archedTextTab.Location = new System.Drawing.Point(3, 3);
+            this.archedTextTab.Name = "archedTextTab";
+            this.archedTextTab.Size = new System.Drawing.Size(387, 626);
+            this.archedTextTab.TabIndex = 0;
             // 
             // ribbonOrbRecentItem2
             // 
@@ -1840,6 +1860,8 @@ namespace GraphicsWorkshop
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TabPage tabPage3;
+        private GraphicsWorkshop.Form_Tabs.frmShadowText shadowTextTab;
+        private GraphicsWorkshop.Form_Tabs.frmArchedText archedTextTab;
         private System.Windows.Forms.Label lblSample;
         private CodeVendor.Controls.Grouper grouper1;
         private CButtonLib.CButton btnSelectFont;

@@ -8,7 +8,7 @@ using System.Drawing;
 
 namespace GraphicsWorkshop.Form_Tabs
 {
-    public partial class frmArchedText : Form
+    public partial class frmArchedText : UserControl
     {
         public frmArchedText()
         {
@@ -217,11 +217,8 @@ namespace GraphicsWorkshop.Form_Tabs
 
             frmGraphicDesigner.ArchedImage = picArchedText.Image;
 
-            // Hosted inside its tab page there is no window to close, so hand the image to the designer instead
-            if (this.TopLevel)
-                this.Close();
-            else
-                AddToDesigner?.Invoke(this, EventArgs.Empty);
+            // There is no window to close any more, so hand the image to the designer instead
+            AddToDesigner?.Invoke(this, EventArgs.Empty);
         }
 
         private void cmbArchText_SelectedIndexChanged(object sender, EventArgs e)

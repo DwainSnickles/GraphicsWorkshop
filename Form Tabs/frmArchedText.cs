@@ -13,6 +13,7 @@ namespace GraphicsWorkshop.Form_Tabs
         public frmArchedText()
         {
             InitializeComponent();
+            this.Load += frmArchedText_Load;
         }
 
         private Font TheFont;
@@ -22,6 +23,9 @@ namespace GraphicsWorkshop.Form_Tabs
         private bool RotateText = false;
 
         public bool DrawBorder { get; private set; }
+
+        // Raised when this form is hosted in its tab page and the image should go onto the design surface
+        public event EventHandler AddToDesigner;
 
         private bool DrawCenterCircle = false;
         private bool Draw3DCircle = false;
@@ -208,10 +212,16 @@ namespace GraphicsWorkshop.Form_Tabs
 
         private void btnAddTextToDesinger_Click(object sender, EventArgs e)
         {
-            if (picArchedText.Image != null)
-                frmGraphicDesigner.ArchedImage = picArchedText.Image;
+            if (picArchedText.Image == null)
+                return;
 
-            this.Close();
+            frmGraphicDesigner.ArchedImage = picArchedText.Image;
+
+            // Hosted inside its tab page there is no window to close, so hand the image to the designer instead
+            if (this.TopLevel)
+                this.Close();
+            else
+                AddToDesigner?.Invoke(this, EventArgs.Empty);
         }
 
         private void cmbArchText_SelectedIndexChanged(object sender, EventArgs e)

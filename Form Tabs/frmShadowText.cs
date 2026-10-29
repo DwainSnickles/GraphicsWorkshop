@@ -17,6 +17,7 @@ namespace GraphicsWorkshop.Form_Tabs
         public frmShadowText()
         {
             InitializeComponent();
+            this.Paint += Form1_Paint;
         }
         public Rectangle rect { get; set; }
 
@@ -74,7 +75,6 @@ namespace GraphicsWorkshop.Form_Tabs
             //bmp.Save(filename);
             picText.Image = bmp;
             brushBkgnd.Dispose();
-            e.Graphics.Dispose();
         }
 
 

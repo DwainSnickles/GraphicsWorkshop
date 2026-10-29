@@ -278,6 +278,16 @@ namespace GraphicsWorkshop
                         break;
                     }
 
+                case "CircularTextImage":// Arched or circular text rendered in the tab, held in memory
+                    {
+                        EmbeddedImageGraphic myCircularText = new EmbeddedImageGraphic(0, 0, ArchedImage);
+                        gObj = myCircularText;
+                        gObj.AutoSize = true;
+                        // The image is embedded, so it must not inherit the path of an image opened earlier
+                        strImagePath = null;
+                        break;
+                    }
+
                 case "Fill":// Allow the background to be colored
                     {
                         RectangleGraphic myRectangle = new RectangleGraphic(graphicsSurface.SurfaceMargins.X, graphicsSurface.SurfaceMargins.Y, graphicsSurface.SurfaceMargins.Width, graphicsSurface.SurfaceMargins.Height);
@@ -345,6 +355,12 @@ namespace GraphicsWorkshop
 
         private void frmGraphicDesigner_Load(object sender, EventArgs e)
         {
+            HostTabForm(new Form_Tabs.frmShadowText(), tabPage2);
+
+            var archedText = new Form_Tabs.frmArchedText();
+            archedText.AddToDesigner += ArchedText_AddToDesigner;
+            HostTabForm(archedText, tabPage3);
+
             //ribbonMain.OrbDropDown.RecentItems.Add()
             RecentFilepaths.Add("FilesPath 1");
             RecentFilepaths.Add("FilesPath 2");
@@ -354,6 +370,21 @@ namespace GraphicsWorkshop
             {
                 ADDRecentFilePath(item);
             }
+        }
+
+        private void ArchedText_AddToDesigner(object sender, EventArgs e)
+        {
+            AddObject("CircularTextImage", false);
+        }
+
+        // The text tabs are their own forms, so show each one inside its page instead of a new window
+        private static void HostTabForm(Form form, TabPage host)
+        {
+            form.TopLevel = false;
+            form.FormBorderStyle = FormBorderStyle.None;
+            form.Dock = DockStyle.Fill;
+            host.Controls.Add(form);
+            form.Show();
         }
 
         private void btnSelectFont_Click(object sender, EventArgs e)

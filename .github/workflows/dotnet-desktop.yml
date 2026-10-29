@@ -37,3 +37,13 @@ jobs:
 
       - name: Build
         run: msbuild GraphicsWorkshop.sln -p:Configuration=${{ matrix.configuration }} -v:minimal
+
+      # The whole output folder, not just the exe: the app needs the vendored
+      # DesignSurface and ribbon DLLs next to it, plus CButtonLib from NuGet.
+      - name: Upload the built application
+        uses: actions/upload-artifact@v4
+        with:
+          name: GraphicsWorkshop-${{ matrix.configuration }}
+          path: bin/${{ matrix.configuration }}/
+          if-no-files-found: error
+          retention-days: 30

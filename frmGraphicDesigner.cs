@@ -3,7 +3,11 @@ using Microsoft.VisualBasic;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
+using System.IO;
+using System.Reflection;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Windows.Forms;
 
 //has code needed if missing
@@ -33,6 +37,8 @@ namespace GraphicsWorkshop
         //// 'Hold the Page width and Height etc
         //private double P_Width, P_Height, M_Left, M_Right, M_Top, M_Bottom;
         private string ImgPath;
+        // The object the Copy button took, kept so Paste can add a duplicate of it
+        private GraphicObjects copiedObject;
         List<string> RecentFilepaths = new List<string>();
         private RibbonButton ribbonButton;
         int RecentButtonNumber = 1;
@@ -65,10 +71,39 @@ namespace GraphicsWorkshop
             { "ribbonPanel12", "Grid Orientation" }
         };
 
+        // The Start tab's own artwork is a set of fully transparent 32x32 placeholders, so its
+        // panels come up with no icons at all. Each of its buttons borrows the art of the button
+        // that does the same job on the Design Surface Toolbar tab.
+        private static readonly Dictionary<string, string> StartTabIcons = new Dictionary<string, string>
+        {
+            { "ribbonButton20", "ribbonButton8" },          // Files
+            { "ribbonButton21", "btnOpenImage" },           // Files > Open Images
+            { "ribbonButton22", "btnOpenSavedObjects" },    // Files > Open Saved Objects
+            { "ribbonButton23", "ribbonButton1" },          // Paste
+            { "ribbonButton24", "ribbonButton1" },          // Paste, drop down entry
+            { "ribbonButton26", "btnCut" },
+            { "ribbonButton27", "btnCopy" },
+            { "ribbonButton28", "btnPaste" },
+            { "ribbonButton29", "btnBringToFront" },        // Front
+            { "ribbonButton30", "btnSendToBack" },          // Back
+            { "ribbonButton31", "btnRedo" },
+            { "ribbonButton32", "btnUndo" },
+            { "ribbonButton33", "btnFillBackground" },      // Fill
+            { "ribbonButton34", "btnBacgroundImage" },      // Image
+            { "ribbonButton35", "btnPortrait" },
+            { "ribbonButton16", "btnLandscape" },
+            { "ribbonButton13", "btnClearGrid" },
+            { "ribbonButton14", "btnShowGrid" },
+            { "ribbonButton15", "btnHideGrid" }
+        };
+
         public frmGraphicDesigner()
         {
             InitializeComponent();
             RestoreRibbonCaptions();
+            CopyStartTabIcons();
+            RestoreRibbonLargeImages();
+            RestoreRibbonSmallImages();
             AlignRibbonButtonText();
             FitRibbonCaptions();
         }
@@ -93,6 +128,131 @@ namespace GraphicsWorkshop
         {
             string caption;
             return name != null && RibbonCaptions.TryGetValue(name, out caption) ? caption : null;
+        }
+
+        private void CopyStartTabIcons()
+        {
+            var buttons = new Dictionary<string, RibbonButton>();
+            foreach (RibbonTab tab in ribbonMain.Tabs)
+            {
+                foreach (RibbonPanel panel in tab.Panels)
+                    CollectButtons(panel.Items, buttons);
+            }
+
+            foreach (var pair in StartTabIcons)
+            {
+                RibbonButton target, source;
+                if (!buttons.TryGetValue(pair.Key, out target) || !buttons.TryGetValue(pair.Value, out source))
+                    continue;
+
+                if (source.Image == null)
+                    continue;
+
+                target.LargeImage = source.Image;
+                target.SmallImage = IsBlankImage(source.SmallImage) ? null : source.SmallImage;
+            }
+        }
+
+        // Cut, Copy, Paste, Front and Back carry their real artwork in the 16x16 small image and
+        // have a blank 32x32 placeholder for the large one, so Large size mode draws nothing at
+        // all. Blow the small icon up to fill the large slot instead.
+        private void RestoreRibbonLargeImages()
+        {
+            foreach (RibbonTab tab in ribbonMain.Tabs)
+            {
+                foreach (RibbonPanel panel in tab.Panels)
+                {
+                    foreach (RibbonItem item in panel.Items)
+                    {
+                        var button = item as RibbonButton;
+                        if (button == null || !IsBlankImage(button.Image) || IsBlankImage(button.SmallImage))
+                            continue;
+
+                        button.LargeImage = FitToIcon(button.SmallImage, 32);
+                    }
+                }
+            }
+        }
+
+        private static void CollectButtons(RibbonItemCollection items, Dictionary<string, RibbonButton> into)
+        {
+            foreach (RibbonItem item in items)
+            {
+                var button = item as RibbonButton;
+                if (button == null)
+                    continue;
+
+                into[button.Name] = button;
+
+                if (button.DropDownItems != null)
+                    CollectButtons(button.DropDownItems, into);
+            }
+        }
+
+        // A button only paints LargeImage in Large size mode. Once the ribbon runs out of width it
+        // squeezes items to Medium or Compact, which paint SmallImage instead - and several of the
+        // buttons in the designer file carry a blank 16x16 placeholder there, so they lose their
+        // icon entirely. Derive a small image from the large one for any that are blank.
+        private void RestoreRibbonSmallImages()
+        {
+            foreach (RibbonTab tab in ribbonMain.Tabs)
+            {
+                foreach (RibbonPanel panel in tab.Panels)
+                    ShrinkBlankSmallImages(panel.Items);
+            }
+        }
+
+        private static void ShrinkBlankSmallImages(RibbonItemCollection items)
+        {
+            foreach (RibbonItem item in items)
+            {
+                var button = item as RibbonButton;
+                if (button == null)
+                    continue;
+
+                if (IsBlankImage(button.SmallImage) && button.Image != null)
+                    button.SmallImage = FitToIcon(button.Image, 16);
+
+                if (button.DropDownItems != null)
+                    ShrinkBlankSmallImages(button.DropDownItems);
+            }
+        }
+
+        private static bool IsBlankImage(Image image)
+        {
+            if (image == null)
+                return true;
+
+            using (var pixels = new Bitmap(image))
+            {
+                for (int y = 0; y < pixels.Height; y++)
+                {
+                    for (int x = 0; x < pixels.Width; x++)
+                    {
+                        if (pixels.GetPixel(x, y).A > 8)
+                            return false;
+                    }
+                }
+            }
+
+            return true;
+        }
+
+        private static Image FitToIcon(Image image, int side)
+        {
+            double scale = Math.Min(side / (double)image.Width, side / (double)image.Height);
+            int width = Math.Max(1, (int)Math.Round(image.Width * scale));
+            int height = Math.Max(1, (int)Math.Round(image.Height * scale));
+
+            var icon = new Bitmap(side, side, PixelFormat.Format32bppArgb);
+            using (var g = Graphics.FromImage(icon))
+            {
+                g.InterpolationMode = InterpolationMode.HighQualityBicubic;
+                g.PixelOffsetMode = PixelOffsetMode.HighQuality;
+                g.DrawImage(image, (side - width) / 2, (side - height) / 2, width, height);
+            }
+
+            return icon;
         }
 
         // A caption made of more than one word is broken onto a second line when the button is
@@ -240,16 +400,92 @@ namespace GraphicsWorkshop
             graphicsSurface.OpenGraphic();
         }
 
+        // Saved objects are the files the surface writes with SaveGraphics (one .dat holding a
+        // whole object collection). Opening one adds its objects to the current surface instead of
+        // replacing what is already drawn, so the work on the surface is never thrown away.
         private void btnOpenSavedObjects_Click(object sender, EventArgs e)
         {
+            using (var dialog = new OpenFileDialog())
+            {
+                dialog.Title = "Open Saved Objects";
+                dialog.Filter = "Saved objects (*.dat)|*.dat|All files (*.*)|*.*";
+                dialog.DefaultExt = "dat";
+                dialog.InitialDirectory = Application.StartupPath;
+                dialog.RestoreDirectory = true;
 
+                if (dialog.ShowDialog(this) != DialogResult.OK)
+                    return;
+
+                GraphicObjectCollection savedObjects;
+                try
+                {
+                    var formatter = new BinaryFormatter();
+                    using (var stream = File.OpenRead(dialog.FileName))
+                        savedObjects = (GraphicObjectCollection)formatter.Deserialize(stream);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("The objects in this file could not be opened." + Environment.NewLine + ex.Message,
+                        "Open Saved Objects", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                if (savedObjects == null || savedObjects.Count == 0)
+                    return;
+
+                graphicsSurface.drawingObjects.AddRange(savedObjects);
+                graphicsSurface.SelectedObject = null;
+
+                this.intObjectCount += savedObjects.Count;
+                sbObjectCount.Text = intObjectCount.ToString() + "  Images Loaded";
+                btnCut.Enabled = true;
+                mnuCut.Enabled = true;
+
+                graphicsSurface.Invalidate();
+            }
         }
 
+        // Paste duplicates the object Copy took, offset a little so it does not land exactly on
+        // top of the original. If the copy only had an image path, add that image instead.
         private void btnPaste_Click(object sender, EventArgs e)
         {
-            //graphicsSurface.PasteGraphicImage;
-            //graphicsSurface.AddImageObject();
-            //graphicsSurface.SelectedObjectChanged();
+            if (copiedObject == null)
+            {
+                if (!string.IsNullOrEmpty(ImgPath))
+                    AddObject("Linked", false, ImgPath);
+
+                return;
+            }
+
+            GraphicObjects pasted = CloneObject(copiedObject);
+            if (pasted == null)
+                return;
+
+            pasted.SetPosition(new Point(pasted.X + 20, pasted.Y + 20));
+            graphicsSurface.drawingObjects.Add(pasted);
+            graphicsSurface.SelectedObject = pasted;
+
+            this.intObjectCount += 1;
+            sbObjectCount.Text = intObjectCount.ToString() + "  Images Loaded";
+            btnCut.Enabled = true;
+            mnuCut.Enabled = true;
+
+            graphicsSurface.Invalidate();
+        }
+
+        // A shallow copy keeps the position, size, rotation and picture, and works for every
+        // object type on the surface. The cached Graphics must not be shared with the original.
+        private static GraphicObjects CloneObject(GraphicObjects source)
+        {
+            var clone = (GraphicObjects)typeof(GraphicObjects)
+                .GetMethod("MemberwiseClone", BindingFlags.Instance | BindingFlags.NonPublic)
+                .Invoke(source, null);
+
+            var cachedGraphics = typeof(GraphicObjects).GetField("m_Graphics", BindingFlags.Instance | BindingFlags.NonPublic);
+            if (cachedGraphics != null)
+                cachedGraphics.SetValue(clone, null);
+
+            return clone;
         }
 
         private void btnCut_Click(object sender, EventArgs e)
@@ -261,8 +497,11 @@ namespace GraphicsWorkshop
 
         private void btnCopy_Click(object sender, EventArgs e)
         {
-            if (graphicsSurface.SelectedObject != null)
-                ImgPath = graphicsSurface.SelectedObject.ImagePath;
+            if (graphicsSurface.SelectedObject == null)
+                return;
+
+            ImgPath = graphicsSurface.SelectedObject.ImagePath;
+            copiedObject = graphicsSurface.SelectedObject;
         }
 
         private void btnSendToBack_Click(object sender, EventArgs e)
@@ -296,7 +535,7 @@ namespace GraphicsWorkshop
 
         private void btnBacgroundImage_Click(object sender, EventArgs e)
         {
-            AddObject("BackgroundImage",false);
+            AddObject("BackGroundImage",false);
         }
 
         private void SendObjectToBack()

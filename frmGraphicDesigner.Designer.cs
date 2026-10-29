@@ -372,6 +372,7 @@ namespace GraphicsWorkshop
             this.btnOpenImage.Name = "btnOpenImage";
             this.btnOpenImage.SmallImage = global::GraphicsWorkshop.Properties.Resources.AddimageSmall;
             this.btnOpenImage.Text = "Open Images";
+            this.btnOpenImage.Click += new System.EventHandler(this.btnOpenImage_Click);
             // 
             // btnOpenSavedObjects
             // 
@@ -381,6 +382,7 @@ namespace GraphicsWorkshop
             this.btnOpenSavedObjects.Name = "btnOpenSavedObjects";
             this.btnOpenSavedObjects.SmallImage = global::GraphicsWorkshop.Properties.Resources.addobject1;
             this.btnOpenSavedObjects.Text = "Open Saved Objects";
+            this.btnOpenSavedObjects.Click += new System.EventHandler(this.btnOpenSavedObjects_Click);
             // 
             // ribbonPanel1
             // 
@@ -404,6 +406,7 @@ namespace GraphicsWorkshop
             this.ribbonButton1.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton1.SmallImage")));
             this.ribbonButton1.Style = System.Windows.Forms.RibbonButtonStyle.SplitDropDown;
             this.ribbonButton1.Text = "Paste";
+            this.ribbonButton1.Click += new System.EventHandler(this.btnPaste_Click);
             // 
             // btnPate1
             // 
@@ -441,6 +444,7 @@ namespace GraphicsWorkshop
             this.btnCopy.Name = "btnCopy";
             this.btnCopy.SmallImage = ((System.Drawing.Image)(resources.GetObject("btnCopy.SmallImage")));
             this.btnCopy.Text = "Copy";
+            this.btnCopy.Click += new System.EventHandler(this.btnCopy_Click);
             // 
             // btnPaste
             // 
@@ -450,6 +454,7 @@ namespace GraphicsWorkshop
             this.btnPaste.Name = "btnPaste";
             this.btnPaste.SmallImage = ((System.Drawing.Image)(resources.GetObject("btnPaste.SmallImage")));
             this.btnPaste.Text = "Paste";
+            this.btnPaste.Click += new System.EventHandler(this.btnPaste_Click);
             // 
             // ribbonPanel4
             // 
@@ -467,6 +472,7 @@ namespace GraphicsWorkshop
             this.btnSendToBack.Name = "btnSendToBack";
             this.btnSendToBack.SmallImage = global::GraphicsWorkshop.Properties.Resources.SendToBack;
             this.btnSendToBack.Text = "Send To Back";
+            this.btnSendToBack.Click += new System.EventHandler(this.btnSendToBack_Click);
             // 
             // btnBringToFront
             // 
@@ -476,6 +482,7 @@ namespace GraphicsWorkshop
             this.btnBringToFront.Name = "btnBringToFront";
             this.btnBringToFront.SmallImage = global::GraphicsWorkshop.Properties.Resources.BringToFront;
             this.btnBringToFront.Text = "Bring To Front";
+            this.btnBringToFront.Click += new System.EventHandler(this.btnBringToFront_Click);
             // 
             // ribbonPanel3
             // 
@@ -524,6 +531,7 @@ namespace GraphicsWorkshop
             this.btnFillBackground.Name = "btnFillBackground";
             this.btnFillBackground.SmallImage = ((System.Drawing.Image)(resources.GetObject("btnFillBackground.SmallImage")));
             this.btnFillBackground.Text = "Fill";
+            this.btnFillBackground.Click += new System.EventHandler(this.btnFillBackground_Click);
             // 
             // ribbonSeparator9
             // 
@@ -536,6 +544,7 @@ namespace GraphicsWorkshop
             this.btnBacgroundImage.Name = "btnBacgroundImage";
             this.btnBacgroundImage.SmallImage = ((System.Drawing.Image)(resources.GetObject("btnBacgroundImage.SmallImage")));
             this.btnBacgroundImage.Text = "Image";
+            this.btnBacgroundImage.Click += new System.EventHandler(this.btnBacgroundImage_Click);
             // 
             // ribbonPanel6
             // 
@@ -558,6 +567,7 @@ namespace GraphicsWorkshop
             this.btnPortrait.Name = "btnPortrait";
             this.btnPortrait.SmallImage = ((System.Drawing.Image)(resources.GetObject("btnPortrait.SmallImage")));
             this.btnPortrait.Text = "Portrait";
+            this.btnPortrait.Click += new System.EventHandler(this.btnPortrait_Click);
             // 
             // ribbonSeparator10
             // 
@@ -570,6 +580,7 @@ namespace GraphicsWorkshop
             this.btnLandscape.Name = "btnLandscape";
             this.btnLandscape.SmallImage = ((System.Drawing.Image)(resources.GetObject("btnLandscape.SmallImage")));
             this.btnLandscape.Text = "Landscape";
+            this.btnLandscape.Click += new System.EventHandler(this.btnLandscape_Click);
             // 
             // btnClearGrid
             // 
@@ -704,6 +715,7 @@ namespace GraphicsWorkshop
             this.ribbonButton31.Name = "ribbonButton31";
             this.ribbonButton31.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton31.SmallImage")));
             this.ribbonButton31.Text = "Redo";
+            this.ribbonButton31.Click += new System.EventHandler(this.btnRedo_Click);
             // 
             // ribbonSeparator24
             // 
@@ -716,6 +728,7 @@ namespace GraphicsWorkshop
             this.ribbonButton32.Name = "ribbonButton32";
             this.ribbonButton32.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton32.SmallImage")));
             this.ribbonButton32.Text = "Undo";
+            this.ribbonButton32.Click += new System.EventHandler(this.btnUndo_Click);
             // 
             // ribbonSeparator26
             // 
@@ -737,6 +750,7 @@ namespace GraphicsWorkshop
             this.ribbonButton33.Name = "ribbonButton33";
             this.ribbonButton33.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton33.SmallImage")));
             this.ribbonButton33.Text = "Fill";
+            this.ribbonButton33.Click += new System.EventHandler(this.btnFillBackground_Click);
             // 
             // ribbonSeparator25
             // 
@@ -749,6 +763,7 @@ namespace GraphicsWorkshop
             this.ribbonButton34.Name = "ribbonButton34";
             this.ribbonButton34.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton34.SmallImage")));
             this.ribbonButton34.Text = "Image";
+            this.ribbonButton34.Click += new System.EventHandler(this.btnBacgroundImage_Click);
             // 
             // ribbonPanel12
             // 
@@ -771,6 +786,7 @@ namespace GraphicsWorkshop
             this.ribbonButton35.Name = "ribbonButton35";
             this.ribbonButton35.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton35.SmallImage")));
             this.ribbonButton35.Text = "Portrait";
+            this.ribbonButton35.Click += new System.EventHandler(this.btnPortrait_Click);
             // 
             // ribbonSeparator22
             // 
@@ -783,6 +799,7 @@ namespace GraphicsWorkshop
             this.ribbonButton16.Name = "ribbonButton16";
             this.ribbonButton16.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton16.SmallImage")));
             this.ribbonButton16.Text = "Landscape";
+            this.ribbonButton16.Click += new System.EventHandler(this.btnLandscape_Click);
             // 
             // ribbonButton13
             // 
@@ -792,6 +809,7 @@ namespace GraphicsWorkshop
             this.ribbonButton13.Name = "ribbonButton13";
             this.ribbonButton13.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton13.SmallImage")));
             this.ribbonButton13.Text = "Clear Grid";
+            this.ribbonButton13.Click += new System.EventHandler(this.btnClearGrid_Click_1);
             // 
             // ribbonButton14
             // 
@@ -800,6 +818,7 @@ namespace GraphicsWorkshop
             this.ribbonButton14.Name = "ribbonButton14";
             this.ribbonButton14.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton14.SmallImage")));
             this.ribbonButton14.Text = "Show Grid";
+            this.ribbonButton14.Click += new System.EventHandler(this.btnShowGrid_Click);
             // 
             // ribbonSeparator15
             // 
@@ -812,6 +831,7 @@ namespace GraphicsWorkshop
             this.ribbonButton15.Name = "ribbonButton15";
             this.ribbonButton15.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton15.SmallImage")));
             this.ribbonButton15.Text = "Hide Grid";
+            this.ribbonButton15.Click += new System.EventHandler(this.btnHideGrid_Click);
             // 
             // ribbonSeparator23
             // 
@@ -862,6 +882,7 @@ namespace GraphicsWorkshop
             this.ribbonButton21.Name = "ribbonButton21";
             this.ribbonButton21.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton21.SmallImage")));
             this.ribbonButton21.Text = "Open Images";
+            this.ribbonButton21.Click += new System.EventHandler(this.btnOpenImage_Click);
             // 
             // ribbonButton22
             // 
@@ -871,6 +892,7 @@ namespace GraphicsWorkshop
             this.ribbonButton22.Name = "ribbonButton22";
             this.ribbonButton22.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton22.SmallImage")));
             this.ribbonButton22.Text = "Open Saved Objects";
+            this.ribbonButton22.Click += new System.EventHandler(this.btnOpenSavedObjects_Click);
             // 
             // ribbonPanel8
             // 
@@ -894,6 +916,7 @@ namespace GraphicsWorkshop
             this.ribbonButton23.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton23.SmallImage")));
             this.ribbonButton23.Style = System.Windows.Forms.RibbonButtonStyle.SplitDropDown;
             this.ribbonButton23.Text = "Paste";
+            this.ribbonButton23.Click += new System.EventHandler(this.btnPaste_Click);
             // 
             // ribbonButton24
             // 
@@ -903,6 +926,7 @@ namespace GraphicsWorkshop
             this.ribbonButton24.Name = "ribbonButton24";
             this.ribbonButton24.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton24.SmallImage")));
             this.ribbonButton24.Text = "Paste";
+            this.ribbonButton24.Click += new System.EventHandler(this.btnPaste_Click);
             // 
             // ribbonButton25
             // 
@@ -921,6 +945,7 @@ namespace GraphicsWorkshop
             this.ribbonButton26.Name = "ribbonButton26";
             this.ribbonButton26.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton26.SmallImage")));
             this.ribbonButton26.Text = "Cut";
+            this.ribbonButton26.Click += new System.EventHandler(this.btnCut_Click);
             // 
             // ribbonButton27
             // 
@@ -930,6 +955,7 @@ namespace GraphicsWorkshop
             this.ribbonButton27.Name = "ribbonButton27";
             this.ribbonButton27.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton27.SmallImage")));
             this.ribbonButton27.Text = "Copy";
+            this.ribbonButton27.Click += new System.EventHandler(this.btnCopy_Click);
             // 
             // ribbonButton28
             // 
@@ -939,6 +965,7 @@ namespace GraphicsWorkshop
             this.ribbonButton28.Name = "ribbonButton28";
             this.ribbonButton28.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton28.SmallImage")));
             this.ribbonButton28.Text = "Paste";
+            this.ribbonButton28.Click += new System.EventHandler(this.btnPaste_Click);
             // 
             // ribbonPanel9
             // 
@@ -957,6 +984,7 @@ namespace GraphicsWorkshop
             this.ribbonButton29.Name = "ribbonButton29";
             this.ribbonButton29.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton29.SmallImage")));
             this.ribbonButton29.Text = "Front";
+            this.ribbonButton29.Click += new System.EventHandler(this.btnBringToFront_Click);
             // 
             // ribbonButton30
             // 
@@ -965,6 +993,7 @@ namespace GraphicsWorkshop
             this.ribbonButton30.Name = "ribbonButton30";
             this.ribbonButton30.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton30.SmallImage")));
             this.ribbonButton30.Text = "Back";
+            this.ribbonButton30.Click += new System.EventHandler(this.btnSendToBack_Click);
             // 
             // TabimageList
             // 
@@ -1626,6 +1655,7 @@ namespace GraphicsWorkshop
             this.ribbonMain.Size = new System.Drawing.Size(899, 145);
             this.ribbonMain.TabIndex = 3;
             this.ribbonMain.Tabs.Add(this.ribbonTab1);
+            this.ribbonMain.Tabs.Add(this.ribbonTab2);
             this.ribbonMain.Text = "ribbonMain";
             // 
             // btnQuickSaveQA

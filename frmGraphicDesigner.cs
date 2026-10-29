@@ -100,6 +100,13 @@ namespace GraphicsWorkshop
         public frmGraphicDesigner()
         {
             InitializeComponent();
+
+            // The ribbon only lays its six panels out at Large when the window is at least 940px
+            // wide; below that it demotes them to Medium and Compact and the tabs look broken. The
+            // form's own width is 915, so without this floor the app opens in the demoted state and
+            // collapses further whenever the window is made smaller.
+            MinimumSize = new Size(940, 0);
+
             RestoreRibbonCaptions();
             CopyStartTabIcons();
             RestoreRibbonLargeImages();

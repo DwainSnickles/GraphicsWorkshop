@@ -486,8 +486,8 @@ namespace GraphicsWorkshop
             // 
             // btnRedo
             // 
-            this.btnRedo.Image = ((System.Drawing.Image)(resources.GetObject("btnRedo.Image")));
-            this.btnRedo.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnRedo.LargeImage")));
+            this.btnRedo.Image = global::GraphicsWorkshop.Properties.Resources.redo1;
+            this.btnRedo.LargeImage = global::GraphicsWorkshop.Properties.Resources.redo1;
             this.btnRedo.Name = "btnRedo";
             this.btnRedo.SmallImage = ((System.Drawing.Image)(resources.GetObject("btnRedo.SmallImage")));
             this.btnRedo.Text = "Redo";
@@ -499,8 +499,8 @@ namespace GraphicsWorkshop
             // 
             // btnUndo
             // 
-            this.btnUndo.Image = ((System.Drawing.Image)(resources.GetObject("btnUndo.Image")));
-            this.btnUndo.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnUndo.LargeImage")));
+            this.btnUndo.Image = global::GraphicsWorkshop.Properties.Resources.undo2;
+            this.btnUndo.LargeImage = global::GraphicsWorkshop.Properties.Resources.undo2;
             this.btnUndo.Name = "btnUndo";
             this.btnUndo.SmallImage = ((System.Drawing.Image)(resources.GetObject("btnUndo.SmallImage")));
             this.btnUndo.Text = "Undo";
@@ -517,8 +517,8 @@ namespace GraphicsWorkshop
             // 
             // btnFillBackground
             // 
-            this.btnFillBackground.Image = ((System.Drawing.Image)(resources.GetObject("btnFillBackground.Image")));
-            this.btnFillBackground.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnFillBackground.LargeImage")));
+            this.btnFillBackground.Image = global::GraphicsWorkshop.Properties.Resources.fill1;
+            this.btnFillBackground.LargeImage = global::GraphicsWorkshop.Properties.Resources.fill1;
             this.btnFillBackground.Name = "btnFillBackground";
             this.btnFillBackground.SmallImage = ((System.Drawing.Image)(resources.GetObject("btnFillBackground.SmallImage")));
             this.btnFillBackground.Text = "Fill";
@@ -529,8 +529,8 @@ namespace GraphicsWorkshop
             // 
             // btnBacgroundImage
             // 
-            this.btnBacgroundImage.Image = ((System.Drawing.Image)(resources.GetObject("btnBacgroundImage.Image")));
-            this.btnBacgroundImage.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnBacgroundImage.LargeImage")));
+            this.btnBacgroundImage.Image = global::GraphicsWorkshop.Properties.Resources.key_primary_reset;
+            this.btnBacgroundImage.LargeImage = global::GraphicsWorkshop.Properties.Resources.key_primary_reset;
             this.btnBacgroundImage.Name = "btnBacgroundImage";
             this.btnBacgroundImage.SmallImage = ((System.Drawing.Image)(resources.GetObject("btnBacgroundImage.SmallImage")));
             this.btnBacgroundImage.Text = "Image";
@@ -551,8 +551,8 @@ namespace GraphicsWorkshop
             // 
             // btnPortrait
             // 
-            this.btnPortrait.Image = ((System.Drawing.Image)(resources.GetObject("btnPortrait.Image")));
-            this.btnPortrait.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnPortrait.LargeImage")));
+            this.btnPortrait.Image = global::GraphicsWorkshop.Properties.Resources.portrait2;
+            this.btnPortrait.LargeImage = global::GraphicsWorkshop.Properties.Resources.portrait2;
             this.btnPortrait.Name = "btnPortrait";
             this.btnPortrait.SmallImage = ((System.Drawing.Image)(resources.GetObject("btnPortrait.SmallImage")));
             this.btnPortrait.Text = "Portrait";
@@ -563,20 +563,21 @@ namespace GraphicsWorkshop
             // 
             // btnLandscape
             // 
-            this.btnLandscape.Image = ((System.Drawing.Image)(resources.GetObject("btnLandscape.Image")));
-            this.btnLandscape.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnLandscape.LargeImage")));
+            this.btnLandscape.Image = global::GraphicsWorkshop.Properties.Resources.Landscape32;
+            this.btnLandscape.LargeImage = global::GraphicsWorkshop.Properties.Resources.Landscape32;
             this.btnLandscape.Name = "btnLandscape";
             this.btnLandscape.SmallImage = ((System.Drawing.Image)(resources.GetObject("btnLandscape.SmallImage")));
             this.btnLandscape.Text = "Landscape";
             // 
             // btnClearGrid
             // 
-            this.btnClearGrid.Image = ((System.Drawing.Image)(resources.GetObject("btnClearGrid.Image")));
-            this.btnClearGrid.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnClearGrid.LargeImage")));
+            this.btnClearGrid.Image = global::GraphicsWorkshop.Properties.Resources.EmptyGrid30;
+            this.btnClearGrid.LargeImage = global::GraphicsWorkshop.Properties.Resources.EmptyGrid30;
             this.btnClearGrid.MinSizeMode = System.Windows.Forms.RibbonElementSizeMode.Large;
             this.btnClearGrid.Name = "btnClearGrid";
             this.btnClearGrid.SmallImage = ((System.Drawing.Image)(resources.GetObject("btnClearGrid.SmallImage")));
             this.btnClearGrid.Text = "Clear Grid";
+            this.btnClearGrid.Click += new System.EventHandler(this.btnClearGrid_Click_1);
             // 
             // ribbonSeparator12
             // 
@@ -584,11 +585,12 @@ namespace GraphicsWorkshop
             // 
             // btnShowGrid
             // 
-            this.btnShowGrid.Image = ((System.Drawing.Image)(resources.GetObject("btnShowGrid.Image")));
-            this.btnShowGrid.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnShowGrid.LargeImage")));
+            this.btnShowGrid.Image = global::GraphicsWorkshop.Properties.Resources.Grid2;
+            this.btnShowGrid.LargeImage = global::GraphicsWorkshop.Properties.Resources.Grid2;
             this.btnShowGrid.Name = "btnShowGrid";
-            this.btnShowGrid.SmallImage = ((System.Drawing.Image)(resources.GetObject("btnShowGrid.SmallImage")));
+            this.btnShowGrid.SmallImage = global::GraphicsWorkshop.Properties.Resources.Grid2;
             this.btnShowGrid.Text = "Show Grid";
+            this.btnShowGrid.Click += new System.EventHandler(this.btnShowGrid_Click);
             // 
             // ribbonSeparator13
             // 
@@ -596,11 +598,12 @@ namespace GraphicsWorkshop
             // 
             // btnHideGrid
             // 
-            this.btnHideGrid.Image = ((System.Drawing.Image)(resources.GetObject("btnHideGrid.Image")));
-            this.btnHideGrid.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnHideGrid.LargeImage")));
+            this.btnHideGrid.Image = global::GraphicsWorkshop.Properties.Resources.Frame2;
+            this.btnHideGrid.LargeImage = global::GraphicsWorkshop.Properties.Resources.Frame2;
             this.btnHideGrid.Name = "btnHideGrid";
             this.btnHideGrid.SmallImage = ((System.Drawing.Image)(resources.GetObject("btnHideGrid.SmallImage")));
             this.btnHideGrid.Text = "Hide Grid";
+            this.btnHideGrid.Click += new System.EventHandler(this.btnHideGrid_Click);
             // 
             // openFileDialog1
             // 
@@ -1013,6 +1016,8 @@ namespace GraphicsWorkshop
             this.graphicsSurface.Dock = System.Windows.Forms.DockStyle.Fill;
             this.graphicsSurface.GridColor = System.Drawing.Color.LightBlue;
             this.graphicsSurface.GridLineWidth = 1;
+            this.graphicsSurface.GridMarginsShown = true;
+            this.graphicsSurface.GridShown = false;
             this.graphicsSurface.GridSize = 50F;
             this.graphicsSurface.GrObjectChanged = null;
             this.graphicsSurface.ImageObjHeight = 0;
@@ -1022,9 +1027,8 @@ namespace GraphicsWorkshop
             this.graphicsSurface.MarginLineWidth = 1;
             this.graphicsSurface.Name = "graphicsSurface";
             this.graphicsSurface.NonPrintingAreaColor = System.Drawing.Color.Gray;
-            this.graphicsSurface.GridPortrait();
+            this.graphicsSurface.PasteGraphicImage = null;
             this.graphicsSurface.SelectedObject = null;
-            this.graphicsSurface.GridShown = false;
             this.graphicsSurface.Size = new System.Drawing.Size(494, 637);
             this.graphicsSurface.SurfaceBounds = new System.Drawing.Rectangle(0, 0, 850, 1100);
             this.graphicsSurface.SurfaceMargins = new System.Drawing.Rectangle(10, 10, 830, 1080);
@@ -1152,7 +1156,7 @@ namespace GraphicsWorkshop
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(20, 40);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(91, 16);
+            this.label2.Size = new System.Drawing.Size(90, 16);
             this.label2.TabIndex = 0;
             this.label2.Text = "Selected Font";
             // 
@@ -1178,7 +1182,7 @@ namespace GraphicsWorkshop
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(230, 40);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(126, 16);
+            this.label3.Size = new System.Drawing.Size(125, 16);
             this.label3.TabIndex = 7;
             this.label3.Text = "Selected Font Color";
             // 
@@ -1189,7 +1193,7 @@ namespace GraphicsWorkshop
             this.lblFontDetails.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFontDetails.Location = new System.Drawing.Point(20, 68);
             this.lblFontDetails.Name = "lblFontDetails";
-            this.lblFontDetails.Size = new System.Drawing.Size(159, 18);
+            this.lblFontDetails.Size = new System.Drawing.Size(158, 18);
             this.lblFontDetails.TabIndex = 1;
             this.lblFontDetails.Text = "Microsoft Sans Serif, 24pt";
             // 
@@ -1209,7 +1213,7 @@ namespace GraphicsWorkshop
                 | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(16, 302);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(144, 16);
+            this.label4.Size = new System.Drawing.Size(143, 16);
             this.label4.TabIndex = 32;
             this.label4.Text = "Text Object Sample";
             // 
@@ -1242,7 +1246,7 @@ namespace GraphicsWorkshop
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(21, 41);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(137, 16);
+            this.label5.Size = new System.Drawing.Size(136, 16);
             this.label5.TabIndex = 1;
             this.label5.Text = "Enter Text To Display";
             // 

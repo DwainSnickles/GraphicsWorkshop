@@ -16,13 +16,15 @@ checkout builds on its own.
 | `GraphicObjects.dll` | `E:\DesignSurface CSharp\GraphicObjects` | 2025-08-24 |
 | `GraphicsSurface.dll` | `E:\DesignSurface CSharp\GraphicsSurface` (assembly `GraphicsSurface`, control type `DesignSurface`) | 2026-10-28 |
 
-`GraphicsSurface.dll` carries two fixes made in the library source:
+`GraphicsSurface.dll` carries these fixes made in the library source:
 
 - `pbCropped_Click` no longer throws `NullReferenceException` when the crop preview is clicked
   before any object has been added.
 - `gobjc` is marked `[Browsable(false)]` / `[DesignerSerializationVisibility(Hidden)]`, so the
   WinForms designer stops trying to code-generate it (it failed with "Type System.Drawing.Graphics
   is not marked as serializable").
+- The `GridShown` and `GridMarginsShown` setters assign `value` instead of hard-coding `false`,
+  which is what made the Show Grid button impossible to work.
 
 ## When the libraries change
 

@@ -76,7 +76,7 @@ namespace GraphicsWorkshop
 
         private void btnHideGrid_Click(object sender, EventArgs e)
         {
-            graphicsSurface.GridShown = true;
+            graphicsSurface.GridShown = false;
             this.Invalidate();
         }
 

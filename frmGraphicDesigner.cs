@@ -47,12 +47,30 @@ namespace GraphicsWorkshop
         public frmGraphicDesigner()
         {
             InitializeComponent();
-            this.Shown += frmGraphicDesigner_Shown;
+            AlignRibbonButtonText();
+            FitRibbonCaptions();
         }
 
-        private void frmGraphicDesigner_Shown(object sender, EventArgs e)
+        // A caption made of more than one word is broken onto a second line when the button is
+        // narrower than the text, which is what happened to Clear Grid, Show Grid and Hide Grid.
+        // Give those buttons a minimum width that fits their caption on one line.
+        private void FitRibbonCaptions()
         {
-            AlignRibbonButtonText();
+            foreach (RibbonTab tab in ribbonMain.Tabs)
+            {
+                foreach (RibbonPanel panel in tab.Panels)
+                {
+                    foreach (RibbonItem item in panel.Items)
+                    {
+                        var button = item as RibbonButton;
+                        if (button == null || string.IsNullOrEmpty(button.Text) || button.Text.IndexOf(' ') < 0)
+                            continue;
+
+                        int textWidth = TextRenderer.MeasureText(button.Text, ribbonMain.Font).Width;
+                        button.MinimumSize = new Size(textWidth + 12, 0);
+                    }
+                }
+            }
         }
 
         #region Display Orientation

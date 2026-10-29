@@ -1,4 +1,5 @@
 # Graphics Workshop
+This was an old project with a bunch of things missing using FreeBuff AI  i totally revamped it using my new ribbon fork https://github.com/DwainSnickles/RibbonWinForms designed for windows dotnet 10.
 A grahics workstation used to edit grahics and create objects to be added to a design surface where objects can be placed in certain positions along with object rotation.
 This app is not complete and is a work in progress.
 I made it public so if any one is interested in contributing please let me know.

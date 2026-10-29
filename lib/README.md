@@ -16,8 +16,13 @@ checkout builds on its own.
 | `GraphicObjects.dll` | `E:\DesignSurface CSharp\GraphicObjects` | 2025-08-24 |
 | `GraphicsSurface.dll` | `E:\DesignSurface CSharp\GraphicsSurface` (assembly `GraphicsSurface`, control type `DesignSurface`) | 2026-10-28 |
 
-`GraphicsSurface.dll` includes the fix for the `NullReferenceException` thrown by
-`pbCropped_Click` when the crop preview was clicked before any object had been added.
+`GraphicsSurface.dll` carries two fixes made in the library source:
+
+- `pbCropped_Click` no longer throws `NullReferenceException` when the crop preview is clicked
+  before any object has been added.
+- `gobjc` is marked `[Browsable(false)]` / `[DesignerSerializationVisibility(Hidden)]`, so the
+  WinForms designer stops trying to code-generate it (it failed with "Type System.Drawing.Graphics
+  is not marked as serializable").
 
 ## When the libraries change
 

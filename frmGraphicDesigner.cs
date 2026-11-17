@@ -1,4 +1,4 @@
-﻿using Microsoft.MSDN.Samples.GraphicObjects;
+﻿using GraphicObjects;
 using Microsoft.VisualBasic;
 using System;
 using System.Collections.Generic;
@@ -38,7 +38,7 @@ namespace GraphicsWorkshop
         //private double P_Width, P_Height, M_Left, M_Right, M_Top, M_Bottom;
         private string ImgPath;
         // The object the Copy button took, kept so Paste can add a duplicate of it
-        private GraphicObjects copiedObject;
+        private GraphicObjects.GraphicObjects copiedObject;
         List<string> RecentFilepaths = new List<string>();
         private RibbonButton ribbonButton;
         int RecentButtonNumber = 1;
@@ -464,7 +464,7 @@ namespace GraphicsWorkshop
                 return;
             }
 
-            GraphicObjects pasted = CloneObject(copiedObject);
+            GraphicObjects.GraphicObjects pasted = CloneObject(copiedObject);
             if (pasted == null)
                 return;
 
@@ -482,13 +482,13 @@ namespace GraphicsWorkshop
 
         // A shallow copy keeps the position, size, rotation and picture, and works for every
         // object type on the surface. The cached Graphics must not be shared with the original.
-        private static GraphicObjects CloneObject(GraphicObjects source)
+        private static GraphicObjects.GraphicObjects CloneObject(GraphicObjects.GraphicObjects source)
         {
-            var clone = (GraphicObjects)typeof(GraphicObjects)
+            var clone = (GraphicObjects.GraphicObjects)typeof(GraphicObjects.GraphicObjects)
                 .GetMethod("MemberwiseClone", BindingFlags.Instance | BindingFlags.NonPublic)
                 .Invoke(source, null);
 
-            var cachedGraphics = typeof(GraphicObjects).GetField("m_Graphics", BindingFlags.Instance | BindingFlags.NonPublic);
+            var cachedGraphics = typeof(GraphicObjects.GraphicObjects).GetField("m_Graphics", BindingFlags.Instance | BindingFlags.NonPublic);
             if (cachedGraphics != null)
                 cachedGraphics.SetValue(clone, null);
 
@@ -568,7 +568,7 @@ namespace GraphicsWorkshop
         {
             this.Cursor = Cursors.WaitCursor;
             // Create a new graphic object
-            GraphicObjects gObj = null/* TODO Change to default(_) if this is not a reference type */;
+            GraphicObjects.GraphicObjects gObj = null/* TODO Change to default(_) if this is not a reference type */;
             // Add 1 To image count to track images
             this.intObjectCount += 1;
 

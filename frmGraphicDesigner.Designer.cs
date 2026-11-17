@@ -133,7 +133,7 @@ namespace GraphicsWorkshop
             this.ribbonButton30 = new System.Windows.Forms.RibbonButton();
             this.TabimageList = new System.Windows.Forms.ImageList(this.components);
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.graphicsSurface = new Microsoft.Msdn.Samples.DesignSurface.DesignSurface();
+            this.graphicsSurface = new DesignSurface.DesignSurface();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.sbObjectCount = new System.Windows.Forms.ToolStripStatusLabel();
             this.btnAddText = new CButtonLib.CButton();
@@ -1885,7 +1885,7 @@ namespace GraphicsWorkshop
         private CButtonLib.CButton btnAddText;
         private System.Windows.Forms.FontDialog fontDialog1;
         private System.Windows.Forms.ColorDialog colorDialog1;
-        private Microsoft.Msdn.Samples.DesignSurface.DesignSurface graphicsSurface;
+        private DesignSurface.DesignSurface graphicsSurface;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;

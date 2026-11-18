@@ -15,3 +15,8 @@ Note at this time once text object is added to the designer
 2) Right click hold and rotate object using the mouse.
 
 ![image](https://user-images.githubusercontent.com/26853477/191587854-726c9a0c-cf80-4b60-9c3f-fbca20977270.png)
+
+## Support this project
+
+If this app is useful to you, you can leave a tip at
+[paypal.me/YTDPlatinum](https://paypal.me/YTDPlatinum). Bug reports and pull requests are welcome too.

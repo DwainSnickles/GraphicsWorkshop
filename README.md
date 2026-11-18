@@ -19,4 +19,5 @@ Note at this time once text object is added to the designer
 ## Support this project
 
 If this app is useful to you, you can leave a tip at
+[ko-fi.com/dwainhsnickles](https://ko-fi.com/dwainhsnickles) (cards, no account needed) or
 [paypal.me/YTDPlatinum](https://paypal.me/YTDPlatinum). Bug reports and pull requests are welcome too.
